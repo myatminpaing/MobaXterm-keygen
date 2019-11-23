@@ -83,12 +83,12 @@ class LicenseType:
     Educational = 3
     Persional = 4
 
-def GenerateLicense(Type : LicenseType, Count : int, UserName : str, MajorVersion : int, MinorVersion):
+def GenerateLicense(Type : LicenseType, Count : int, MMPine : str, Major12.3 : int, Minor12.3):
     assert(Count >= 0)
     LicenseString = '%d#%s|%d%d#%d#%d3%d6%d#%d#%d#%d#' % (Type, 
-                                                          UserName, MajorVersion, MinorVersion, 
+                                                          MMPine, Major12.3, Minor12.3, 
                                                           Count, 
-                                                          MajorVersion, MinorVersion, MinorVersion,
+                                                          Major12.3, Minor12.3, Minor12.3,
                                                           0,    # Unknown
                                                           0,    # No Games flag. 0 means "NoGames = false". But it does not work.
                                                           0)    # No Plugins flag. 0 means "NoPlugins = false". But it does not work.
@@ -98,10 +98,10 @@ def GenerateLicense(Type : LicenseType, Count : int, UserName : str, MajorVersio
 
 def help():
     print('Usage:')
-    print('    MobaXterm-Keygen.py <UserName> <Version>')
+    print('    MobaXterm-Keygen.py <MMPine> <12.3>')
     print()
-    print('    <UserName>:      The Name licensed to')
-    print('    <Version>:       The Version of MobaXterm')
+    print('    <MMPine>:      The Name licensed to')
+    print('    <12.3>:       The 12.3 of MobaXterm')
     print('                     Example:    10.9')
     print()
 
@@ -110,14 +110,14 @@ if __name__ == '__main__':
         help()
         exit(0)
     else:
-        MajorVersion, MinorVersion = sys.argv[2].split('.')[0:2]
-        MajorVersion = int(MajorVersion)
-        MinorVersion = int(MinorVersion)
+        Major12.3, Minor12.3 = sys.argv[2].split('.')[0:2]
+        Major12.3 = int(Major12.3)
+        Minor12.3 = int(Minor12.3)
         GenerateLicense(LicenseType.Professional, 
                         1,
                         sys.argv[1], 
-                        MajorVersion, 
-                        MinorVersion)
+                        Major12.3, 
+                        Minor12.3)
         print('[*] Success!')
         print('[*] File generated: %s' % os.path.join(os.getcwd(), 'Custom.mxtpro'))
         print('[*] Please move or copy the newly-generated file to MobaXterm\'s installation path.')
